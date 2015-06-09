@@ -2941,7 +2941,7 @@ static void emit_assignment(jl_value_t *l, jl_value_t *r, jl_codectx_t *ctx)
     else if (jl_is_symbolnode(l))
         s = jl_symbolnode_sym(l);
     else if (jl_is_globalref(l))
-        bp = global_binding_pointer(jl_globalref_mod(l), jl_globalref_name(l), &bnd, true);
+        bp = global_binding_pointer(jl_globalref_mod(l), jl_globalref_name(l), &bnd, true, ctx);
     else
         assert(false);
     if (bp == NULL)
